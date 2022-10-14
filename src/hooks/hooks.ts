@@ -1,19 +1,23 @@
 /*global google*/
 
 import { isLatLngLiteral } from '@googlemaps/typescript-guards';
-import { createCustomEqual } from 'fast-equals';
+import { createCustomEqual, deepEqual } from 'fast-equals';
 import React from 'react';
 
-const deepCompareEqualsForMaps = createCustomEqual((deepEqual) => (a: any, b: any) => {
-  if (isLatLngLiteral(a) || a instanceof google.maps.LatLng || isLatLngLiteral(b) || b instanceof google.maps.LatLng) {
-    return new google.maps.LatLng(a).equals(new google.maps.LatLng(b));
-  }
+const deepCompareEqualsForMaps = createCustomEqual(() => ({
+  areObjectsEqual: (a, b) => {
+    if (
+      isLatLngLiteral(a) ||
+      a instanceof google.maps.LatLng ||
+      isLatLngLiteral(b) ||
+      b instanceof google.maps.LatLng
+    ) {
+      return new google.maps.LatLng(a).equals(new google.maps.LatLng(b));
+    }
 
-  // TODO extend to other types
-
-  // use fast-equals for other objects
-  return deepEqual(a, b);
-});
+    return deepEqual(a, b);
+  },
+}));
 
 function useDeepCompareMemoize(value: any) {
   const ref = React.useRef();

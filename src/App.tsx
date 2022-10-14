@@ -1,4 +1,4 @@
-import { Maps } from './components/Maps';
+import { Maps } from './components/GoogleMaps';
 
 function App() {
   return (

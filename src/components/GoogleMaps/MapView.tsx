@@ -50,7 +50,7 @@ function MapView({ onClick, onIdle, children, style, ...options }: MapProps) {
       {Children.map(children, (child) => {
         if (isValidElement(child)) {
           // set the map prop on the child component
-          return cloneElement(child, { map });
+          return cloneElement(child as React.ReactElement<{ map: google.maps.Map | undefined }>, { map });
         }
       })}
     </Fragment>
