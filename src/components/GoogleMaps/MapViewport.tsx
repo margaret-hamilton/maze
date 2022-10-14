@@ -4,14 +4,7 @@ import { Children, cloneElement, Fragment, isValidElement, useEffect, useRef, us
 
 import { hooks } from '../../hooks';
 
-interface MapProps extends google.maps.MapOptions {
-  style?: { [key: string]: string };
-  onClick?: (e: google.maps.MapMouseEvent) => void;
-  onIdle?: (map: google.maps.Map) => void;
-  children?: React.ReactNode;
-}
-
-function MapView({ onClick, onIdle, children, style, ...options }: MapProps) {
+function MapViewport({ onClick, onIdle, children, style, ...options }: MapProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<google.maps.Map>();
 
@@ -57,4 +50,4 @@ function MapView({ onClick, onIdle, children, style, ...options }: MapProps) {
   );
 }
 
-export default MapView;
+export default MapViewport;

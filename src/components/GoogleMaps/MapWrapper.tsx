@@ -1,9 +1,8 @@
 import { Status, Wrapper } from '@googlemaps/react-wrapper';
-import { ReactElement } from 'react';
 
-import MapView from './MapView';
+import MapViewport from './MapViewport';
 
-const render = (status: Status): ReactElement => {
+const render = (status: Status) => {
   if (status === Status.LOADING) return <h3>{status} ..</h3>;
   if (status === Status.FAILURE) return <h3>{status} ...</h3>;
   return <></>;
@@ -17,7 +16,7 @@ function MapWrapper() {
 
   return (
     <Wrapper apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY} render={render}>
-      <MapView center={{ lat: 55.753559, lng: 37.609218 }} zoom={11} />
+      <MapViewport center={{ lat: -23.567111, lng: -46.643225 }} zoom={16} />
     </Wrapper>
   );
 }

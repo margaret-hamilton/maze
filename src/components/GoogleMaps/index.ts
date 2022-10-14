@@ -1,1 +1,1 @@
-export { default as Maps } from './MapWrapper';
+export { default as MapWrapper } from './MapWrapper';

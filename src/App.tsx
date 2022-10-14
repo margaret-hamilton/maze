@@ -1,9 +1,9 @@
-import { Maps } from './components/GoogleMaps';
+import { MapWrapper } from './components/GoogleMaps';
 
 function App() {
   return (
     <div className="App">
-      <Maps />
+      <MapWrapper />
     </div>
   );
 }
