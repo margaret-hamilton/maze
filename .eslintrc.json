@@ -1,14 +1,58 @@
 {
-	"extends": [
-		"plugin:@typescript-eslint/recommended"
-	],
-	"parser": "@typescript-eslint/parser",
-	"rules": {
-		"@typescript-eslint/ban-ts-comment": 0,
-		"@typescript-eslint/explicit-module-boundary-types": "off",
-		"@typescript-eslint/no-empty-function": 1,
-		"@typescript-eslint/no-explicit-any": "off",
-		"@typescript-eslint/no-this-alias": 1,
-		"@typescript-eslint/no-unused-vars": 1
-	}
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "react", "jsx-a11y", "simple-import-sort", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "env": {
+    "browser": true,
+    "amd": true,
+    "node": true
+  },
+  "rules": {
+    "@typescript-eslint/ban-ts-comment": 0,
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/no-empty-function": 1,
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-this-alias": 1,
+    "@typescript-eslint/no-unused-vars": 1,
+    "@typescript-eslint/no-var-requires": "off",
+    "jsx-a11y/accessible-emoji": "off",
+    "prettier/prettier": ["warn", {}, { "usePrettierrc": true }],
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "simple-import-sort/exports": "warn",
+    "simple-import-sort/imports": "warn",
+    "jsx-a11y/anchor-is-valid": [
+      "warn",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ]
+  }
 }
