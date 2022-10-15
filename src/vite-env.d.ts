@@ -10,3 +10,11 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+export {};
+
+declare global {
+  interface Window {
+    netlifyIdentity: any;
+  }
+}

@@ -1,1 +1,1 @@
-export { default as MapWrapper } from './MapWrapper';
+export { default as GoogleMaps } from './MapWrapper';

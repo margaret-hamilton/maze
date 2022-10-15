@@ -38,7 +38,7 @@ function MapViewport({ onClick, onIdle, children, style, ...options }: MapProps)
 
   return (
     <Fragment>
-      <div className="map-view" ref={ref} style={style} />
+      <div className="w-full h-full" ref={ref} style={style} />
 
       {Children.map(children, (child) => {
         if (isValidElement(child)) {
