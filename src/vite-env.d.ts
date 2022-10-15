@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+/// <reference types="vite-plugin-pwa/client" />
 
 /**
  *  @external https://vitejs.dev/guide/env-and-mode.html

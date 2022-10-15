@@ -1,7 +1,8 @@
 import { Fragment } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import Navbar from '../../components/Navbar/Navbar';
+import { Navbar } from '../../components/Navbar';
+import { ReloadPrompt } from '../../components/ReloadPrompt';
 
 function Layout() {
   return (
@@ -9,6 +10,7 @@ function Layout() {
       <Navbar />
 
       <Outlet />
+      <ReloadPrompt />
     </Fragment>
   );
 }
