@@ -1,10 +1,11 @@
 import './styles.css';
 
+import { initializeApp } from 'firebase/app';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 import { registerSW } from 'virtual:pwa-register';
 
+import { config } from './config';
 import { Router } from './routes';
 
 if ('serviceWorker' in navigator) {
@@ -12,14 +13,14 @@ if ('serviceWorker' in navigator) {
   registerSW();
 }
 
+initializeApp(config.firebaseConfig);
+
 window.addEventListener('DOMContentLoaded', () => {
   const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
   root.render(
     <React.StrictMode>
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
+      <Router />
     </React.StrictMode>,
   );
 });
